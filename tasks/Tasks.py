@@ -1,7 +1,7 @@
-import celery import Celery, states, Task
+from celery import Celery, states, Task
 
 #define celery app
-app = Celery('tasks', broker='mongodb://localhost:27017/silon', backend="mongodb://localhost:27017/silon")
+app = Celery('tasks', broker='mongodb://localhost:27017/app', backend="mongodb://localhost:27017/app")
 
 
 # Simple "hello world" task
