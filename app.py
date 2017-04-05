@@ -15,7 +15,7 @@ def tasks_insert_callback(documents):
 
   # Update document with task id and current status
   documents[0]['task_id'] = taskResult.id
-  print taskResult.id
+ 
 
 # Function to update task status when its looked up
 def tasks_fetch_callback(response):
