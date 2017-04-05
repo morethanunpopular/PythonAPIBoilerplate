@@ -49,6 +49,9 @@ tasks  = {
     'field': 'task_id'
   },
 
+  # Configure endpoint to return task_id when task is created
+  'extra_response_fields': ['task_id'],
+
   # We choose to override global cache-control directives for this resource.
     'cache_control': 'max-age=10,must-revalidate',
     'cache_expires': 10,

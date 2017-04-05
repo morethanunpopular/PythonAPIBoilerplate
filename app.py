@@ -9,13 +9,13 @@ def tasks_insert_callback(documents):
   # Get name of task to execute, and arguments
   task = documents[0]['task']
   args = documents[0]['args']
-  print len(args) 
   
   # Execute the task with the arguments
   taskResult = Tasks.__dict__[task].delay(*args)
 
   # Update document with task id and current status
   documents[0]['task_id'] = taskResult.id
+  print taskResult.id
 
 # Function to update task status when its looked up
 def tasks_fetch_callback(response):
@@ -31,4 +31,4 @@ app.on_fetched_item_tasks += tasks_fetch_callback
 
 # Start app
 if __name__ == '__main__':
-  app.run()
+  app.run(port=8080)
