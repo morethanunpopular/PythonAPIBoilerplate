@@ -21,7 +21,7 @@ for namespace in nameSpaces:
   socketio.on_namespace(namespaceModule.__dict__[namespace]('/{0}'.format(namespace)))
 
 # Define route for serving test client
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('index.html', async_mode=socketio.async_mode)
 

@@ -1,7 +1,8 @@
 #Global Settings
 XML = False
 DEBUG = True
-
+X_DOMAINS = [ "http://127.0.0.1:5000"]
+X_HEADERS = [ "Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization", "If-Match" ]
 #Database Settings
 MONGO_HOST = 'localhost'
 MONGO_PORT = 27017

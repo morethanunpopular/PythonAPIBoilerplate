@@ -14,4 +14,14 @@ def helloWorld():
     socketio.emit('task_event', {"data": currentID, "room": currentID}, room=currentID, namespace='/tasks') 
     return "hello world"
 
-
+@app.task
+def progessiveTaskExample():
+    import time
+    for x in xrange(10):
+      time.sleep(5)
+      currentID = current_task.request.id
+      socketio = SocketIO(message_queue="redis://")
+      percent = (x + 1) * 10
+      string = "{0}%".format(percent)
+      socketio.emit('task_event', {"data": currentID, "room": currentID, "percent": string }, room=currentID, namespace='/tasks') 
+    return "progessiveTaskExample is done"
