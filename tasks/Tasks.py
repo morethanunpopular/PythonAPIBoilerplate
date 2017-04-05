@@ -11,7 +11,7 @@ def helloWorld():
     time.sleep(20)
     currentID = current_task.request.id
     socketio = SocketIO(message_queue="redis://")
-    socketio.emit('my_response', {"data": currentID, "room": currentID}, room=currentID, namespace='/test') 
+    socketio.emit('task_event', {"data": currentID, "room": currentID}, room=currentID, namespace='/tasks') 
     return "hello world"
 
 
