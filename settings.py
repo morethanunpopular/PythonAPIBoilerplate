@@ -20,7 +20,7 @@ ITEM_METHODS = ['GET', 'PATCH', 'PUT', 'DELETE']
 
 #Define task schema -- matches celery task spec
 TaskSchema = {
-  'task_id': {
+  '_id': {
     'type': 'string'
   },
    'task': {
@@ -42,12 +42,10 @@ TaskSchema = {
 
 tasks  = {
   'item_title': 'task',
+  'item_url': 'regex("[a-f0-9]{8}-?[a-f0-9]{4}-?4[a-f0-9]{3}-?[89ab][a-f0-9]{3}-?[a-f0-9]{12}")',
 
-  # Allow lookups by app name
-  'additional_lookup': {
-    'url': 'regex(".+")',
-    'field': 'task_id'
-  },
+  # Configure endpoint to return task_id when task is created
+  'extra_response_fields': ['task_id'],
 
   # We choose to override global cache-control directives for this resource.
     'cache_control': 'max-age=10,must-revalidate',
