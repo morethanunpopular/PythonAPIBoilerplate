@@ -18,7 +18,7 @@ def helloWorld():
 def progessiveTaskExample():
     import time
     for x in xrange(10):
-      time.sleep(5)
+      time.sleep(2)
       currentID = current_task.request.id
       socketio = SocketIO(message_queue="redis://")
       percent = (x + 1) * 10

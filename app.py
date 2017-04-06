@@ -21,7 +21,10 @@ def tasks_insert_callback(documents):
 def tasks_fetch_callback(response):
   task = Tasks.app.AsyncResult(response['_id'])
   response['status'] = task.status
-
+  response['result'] = {
+    "output" : task.result,
+    "error" : task.traceback
+  }
 # Define app
 app = Eve()
 
