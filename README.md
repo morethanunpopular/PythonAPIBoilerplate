@@ -7,3 +7,9 @@ Eve.py powers CRUD operations via a highly explicit and well structured RESTful 
 To avoid REST and RPC cross polination, this boilerplates thinks of background tasks as "creating instances of a given task" and not directly performing a remote procedue. To this end, the code in this repository creates a "tasks" endpoint for the creation and reading of background tasks. You can then poll the new resource representing the task for its status to see once it completes. 
 
 If polling to check a tasks status is not optimal for your usecase, or you need a background task to return data to the client in real time, you can use the simple pubsub application included in this repository as a starting place for pushing data to the client side in real time. 
+
+# To Do
+- Need to generate configuration for eve dynamically
+- Standardize task messages with schema validation
+- Improve Logging
+- Write installation and usage documentation
