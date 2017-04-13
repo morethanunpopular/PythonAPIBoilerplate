@@ -28,7 +28,8 @@ TaskSchema = {
     'type': 'string',
     'minlength': 1,
     'maxlength': 100,
-    'required': True
+    'required': True,
+    'allowed': 'progressiveTaskExample'
   },
   'args': {
     'type': 'list'

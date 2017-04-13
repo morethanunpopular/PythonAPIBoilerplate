@@ -37,10 +37,14 @@
          http.send(parameters)
          http.onreadystatechange = function() {
           if (http.readyState == XMLHttpRequest.DONE) {
-            document.getElementById("progress-bar").style.width = "5%"
-            var resp = JSON.parse(http.responseText);
-            console.log(resp._id)
-            socket.emit('room_subscribe_event', {room: resp._id});
+            if (http.status == 201) {
+              document.getElementById("progress-bar").style.width = "5%"
+              var resp = JSON.parse(http.responseText);
+              console.log(resp._id)
+              socket.emit('room_subscribe_event', {room: resp._id});
+            } else {
+              alert('Request Failed with Status: ' + http.status)
+           }
           }
         }
      }

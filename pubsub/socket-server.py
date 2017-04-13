@@ -25,7 +25,5 @@ for namespace in nameSpaces:
 def index():
     return render_template('index.html', async_mode=socketio.async_mode)
 
-
-
 if __name__ == '__main__':
     socketio.run(app, debug=True)

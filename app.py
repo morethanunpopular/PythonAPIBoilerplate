@@ -12,9 +12,11 @@ def tasks_insert_callback(documents):
   
   # Execute the task with the arguments
   taskResult = Tasks.__dict__[task].apply_async(*args)
-
+  
   # Update document with task id and current status
   documents[0]['_id'] = taskResult.id
+    
+
  
 
 # Function to update task status when its looked up
