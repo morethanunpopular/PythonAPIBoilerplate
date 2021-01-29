@@ -17,7 +17,7 @@ class tasks(Namespace):
            {'data': 'Joined successfully', 'room': message['room']}) 
 
     def on_task_event(self, message):
-      print "task_event received"
+      print("task_event received")
 
     def on_connect(self):
         emit('connect_callback', {'data': 'Connected', 'count': 0})

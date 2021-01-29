@@ -28,8 +28,8 @@ TaskSchema = {
     'type': 'string',
     'minlength': 1,
     'maxlength': 100,
-    'required': True,
-    'allowed': 'progressiveTaskExample'
+    'required': True
+#    'allowed': ['progressiveTaskExample']
   },
   'args': {
     'type': 'list'

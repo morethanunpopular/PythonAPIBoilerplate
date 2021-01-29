@@ -17,7 +17,7 @@ socketio = SocketIO(app, async_mode='eventlet', message_queue='redis://')
 nameSpaces = [name for _, name, _ in pkgutil.iter_modules(['namespaces'])]
 for namespace in nameSpaces:
   importString = "{0}.{1}".format('namespaces', namespace)
-  namespaceModule = __import__(importString, globals(), locals(), [namespace], -1) 
+  namespaceModule = __import__(importString, globals(), locals(), [namespace], 0) 
   socketio.on_namespace(namespaceModule.__dict__[namespace]('/{0}'.format(namespace)))
 
 # Define route for serving test client
